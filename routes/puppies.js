@@ -1,43 +1,37 @@
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-
-module.exports = router;
-
 'use strict';
 var express = require('express');
 var router = express.Router();
 var db = require('../database');
 
-
-router.get('/create', (req, res, next) => {
-  res.render('create', { book: {} })
-})
+router.get('/', function(req, res, next) {
+  res.send('respond with a resource');
+});
+module.exports = router;
 
 router.post('/new', (req, res, next) => {
-  const title = req.body.title
-  const author = req.body.author
+  const name = req.body.name
+  const breed = req.body.breed
   const image_url = req.body.image_url
   const description = req.body.description
 
- db.createBook(title, author, image_url, description)
-   .then(book => res.redirect(`/books/${book.id}`) )
+ db.createPuppy(name, breed, image_url, description)
+   .then(puppy => res.redirect(`/puppy/${puppy.id}`) )
    .catch(error => { res.render('error', {error})})
 })
 
 router.get('/delete/:id', (req, res, next) => {
   const id = req.params.id
-  db.deleteBookById(id)
+  db.deletePuppyById(id)
     .then(id => res.redirect('/') )
     .catch(error => {res.render('error', {error})
   })
 })
 
 router.get('/:id', (req, res, next) => {
-  const book_id = req.params.id
-  db.getBookById(book_id)
-    .then(book => {res.render('details', {book})
+  const puppy_id = req.params.id
+  db.getBookById(puppy_id)
+    .then(puppy => {res.render('details', {puppy})
     })
     .catch(error => { res.render('error', {error})
     })
