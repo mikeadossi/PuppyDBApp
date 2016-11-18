@@ -23,7 +23,7 @@ const getPuppyById = (puppy_id) => {
 }
 
 const findPuppies = (options) => {
-  const sql = 'SELECT * FROM pups WHERE LOWER(name) LIKE $1 OR LOWER(description) LIKE $1 OR LOWER(breed) LIKE $1'
+  const sql = 'SELECT * FROM pups WHERE name ILIKE $1 OR description ILIKE $1 OR breed ILIKE $1'
   let variables = []
     {
     let q = options.q
