@@ -1,16 +1,18 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div.gif
+   img(src='http://i.giphy.com/MV2Jjcr4V7mgM.gif')
+  h1 Find A Puppy
   input
-  button(style='cursor:pointer') send
+  button(style='cursor:pointer') search
 
-    h1 Find A Puppy
 
-    div.searchHeadingsTable
-      div.headerDiv
-      tbody
+
+  div.searchHeadingsTable
+    div.headerDiv
+    tbody
+      if query
         for q in query
           div
             div
