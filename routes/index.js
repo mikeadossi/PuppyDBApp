@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var db = require('../database/database');
 /* GET home page. */
-
 router.get('/', (request, response, next) => {
+
 
   db.getAllPuppies()
     .then( puppies => {
@@ -18,5 +18,4 @@ router.get('/', (request, response, next) => {
     )
   })
 })
-
 module.exports = router;

@@ -5,25 +5,25 @@ const database = pgp(connectionString)
 
 
 const getAllPuppies = () => {
-  const sql = 'SELECT * FROM puppies'
+  const sql = 'SELECT * FROM pups'
 
   return database.any(sql)
 }
 
 const createPuppy = (name, breed, image_url, description) => {
-  const sql = 'INSERT INTO puppies (name, breed, image_url, description) VALUES ($1, $2, $3, $4) RETURNING *'
+  const sql = 'INSERT INTO pups (name, breed, image_url, description) VALUES ($1, $2, $3, $4) RETURNING *'
 
   return database.one(sql, [name, breed, image_url, description] )
 }
 
 const getPuppyById = (puppy_id) => {
-  const sql = 'SELECT * FROM puppies WHERE puppies.id = $1'
+  const sql = 'SELECT * FROM pups WHERE pups.id = $1'
 
   return database.one(sql, [puppie_id])
 }
 
 const findPuppies = (options) => {
-  const sql = 'SELECT * FROM puppies WHERE LOWER(name) LIKE $1 OR LOWER(description) LIKE $1 OR LOWER(breed) LIKE $1'
+  const sql = 'SELECT * FROM pups WHERE LOWER(name) LIKE $1 OR LOWER(description) LIKE $1 OR LOWER(breed) LIKE $1'
   let variables = []
     {
     let q = options.q
@@ -39,8 +39,8 @@ const findPuppies = (options) => {
 }
 
 const deleteBookById = (id) => {
-  const sql = 'DELETE FROM puppies WHERE id = $1'
-  //why does id work here but on line 20 it has to be puppies.id?
+  const sql = 'DELETE FROM pups WHERE id = $1'
+  //why does id work here but on line 20 it has to be pups.id?
   //I checked postico to see if the sql queries work and they both do
 
   return database.none(sql, [id])
