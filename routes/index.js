@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../database');
+var db = require('../database/database');
 /* GET home page. */
 router.get('/', (req, res, next) => {
   res.render('index', { title: 'puppyApp' });
@@ -17,6 +17,6 @@ router.get('/', (req, res, next) => {
       response.render('index', { puppies }
     )
   })
-})
+
 
 module.exports = router;

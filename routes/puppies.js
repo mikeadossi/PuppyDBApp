@@ -2,7 +2,7 @@
 'use strict';
 var express = require('express');
 var router = express.Router();
-var db = require('../database');
+var db = require('../database/database');
 
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');

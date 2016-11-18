@@ -1,4 +1,4 @@
-const db = require('./main')
+const db = require('./database')
 
 const Puppy = {
 
