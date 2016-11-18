@@ -4,10 +4,8 @@ block content
   h1 Find A Puppy
 
   div.searchHeadingsTable
-    ul
-      for q in query
-        li=q.name
-        li=q.description
-        li=q.breed
-        li
-          img(src=q.image_url)
+    for q in query
+      img(src=q.image_url)
+      h5 #{q.name}
+      h5 #{q.description}
+      h5 #{q.breed}

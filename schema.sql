@@ -12,4 +12,3 @@ VALUES ('Max', 'French Bulldog', 'http://cdn2-www.dogtime.com/assets/uploads/gal
 ('Buck', 'Mutt', 'http://www.petmd.com/sites/default/cache/imagecache/node-gallery-display/Main_2.jpg', 'Barky'),
 ('Fluffy', 'Pomeranian', 'http://s3.amazonaws.com/assets.prod.vetstreet.com/01/b34760827011e1b25e005056ad4734/file/Pomeranian%20004.jpg', 'Stupid'),
 ('Waffles', 'Pitbull', 'https://s-media-cache-ak0.pinimg.com/736x/74/3f/1c/743f1c688f78bd420865b4dff5be27d8.jpg', 'Affectionate'),
-('Ditto', 'French Bulldog', 'https://s-media-cache-ak0.pinimg.com/originals/29/ed/14/29ed14ebbd2ec9bbd68876cc3161dbc3.jpg', 'Dishonest');

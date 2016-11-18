@@ -9,7 +9,6 @@ block content
 
     h1 Find A Puppy
     input
-    button(style='cursor:pointer') search
 
 
 
@@ -20,7 +19,7 @@ block content
         for q in query
           div
             div
-              img.searchResultsImg(src=q.image_url)
+              img(src=q.image_url)
             div.searchResults
               a(href="puppies/"+q.id)= q.name
             div.searchResults= q.breed
