@@ -3,9 +3,13 @@ extends layout
 block content
   div.gif
    img(src='http://i.giphy.com/MV2Jjcr4V7mgM.gif')
-  h1 Find A Puppy
-  input
-  button(style='cursor:pointer') search
+  form(action="/search", method="get")
+    input(type="text", name="q", placeholder=" Search by Name").inputBox
+    button(type="submit", value="Submit").searchBtn Search
+
+    h1 Find A Puppy
+    input
+    button(style='cursor:pointer') search
 
 
 
@@ -18,6 +22,6 @@ block content
             div
               img.searchResultsImg(src=q.image_url)
             div.searchResults
-              a(href="puppies/"+q.id)= q.title
-            div.searchResults= q.author
+              a(href="puppies/"+q.id)= q.name
+            div.searchResults= q.breed
             div.descriptionTable.searchResults= q.description
