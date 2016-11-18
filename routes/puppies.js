@@ -4,36 +4,36 @@ var express = require('express');
 var router = express.Router();
 var db = require('../database/database');
 
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/', function(request, response, next) {
+  response.send('respond with a resource');
 });
 module.exports = router;
 
-router.post('/new', (req, res, next) => {
-  const name = req.body.name
-  const breed = req.body.breed
-  const image_url = req.body.image_url
-  const description = req.body.description
+router.post('/new', (request, response, next) => {
+  const name = request.body.name
+  const breed = request.body.breed
+  const image_url = request.body.image_url
+  const description = request.body.description
 
  db.createPuppy(name, breed, image_url, description)
-   .then(puppy => res.redirect(`/puppy/${puppy.id}`) )
-   .catch(error => { res.render('error', {error})})
+   .then(puppy => response.redirect(`/puppy/${puppy.id}`) )
+   .catch(error => { response.render('error', {error})})
 })
 
-router.get('/delete/:id', (req, res, next) => {
-  const id = req.params.id
+router.get('/delete/:id', (request, response, next) => {
+  const id = request.params.id
   db.deletePuppyById(id)
-    .then(id => res.redirect('/') )
-    .catch(error => {res.render('error', {error})
+    .then(id => response.redirect('/') )
+    .catch(error => {response.render('error', {error})
   })
 })
 
-router.get('/:id', (req, res, next) => {
-  const puppy_id = req.params.id
+router.get('/:id', (request, response, next) => {
+  const puppy_id = request.params.id
   db.getBookById(puppy_id)
-    .then(puppy => {res.render('details', {puppy})
+    .then(puppy => {response.render('details', {puppy})
     })
-    .catch(error => { res.render('error', {error})
+    .catch(error => {response.render('error', {error})
     })
 })
 
