@@ -3,4 +3,19 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  <input></input><button style='cursor:pointer'>send</button>
+  input
+  button(style='cursor:pointer') send
+
+    h1 Find A Puppy
+
+    div.searchHeadingsTable
+      div.headerDiv
+      tbody
+        for q in query
+          div
+            div
+              img.searchResultsImg(src=q.image_url)
+            div.searchResults
+              a(href="puppies/"+q.id)= q.title
+            div.searchResults= q.author
+            div.descriptionTable.searchResults= q.description
